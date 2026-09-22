@@ -1,5 +1,7 @@
 # Project 1 - Build Your Personal Website
 
+**Live site:** [gwensab.github.io](https://gwensab.github.io)
+
 **CSCI 498E / 598E - Coding with AI Agents**
 
 | | |
