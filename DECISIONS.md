@@ -14,7 +14,9 @@ Delete these instructions when you are done, or leave them. It does not matter.
 What you wanted at the start, and what is actually live now.
 Name one thing you dropped or added along the way, and why.
 
-*Your answer here.*
+Before starting, I wanted to build a clean website that that was essentially a resume with multiple pages that had more detail than my resume alone. Ultimately I had to make some sacrifices by adding less information to make the pages look clean and organized. Additionally I decided to use one main page for the primary resume sections because it has a better flow for the website. I still included some other pages for more specific information I did not want visible on the main page like the about me sections and projects. 
+
+...
 
 ---
 
@@ -28,7 +30,7 @@ Say which you picked, what the alternative was, and what you gave up by not taki
 
 "There was no alternative" is not an answer. Find the fork.
 
-*Your answer here.*
+My initial idea was to use multiple pages for each section I wanted on the website. However, after some brief testing, I realized I did not have enough information in each section to make it worth having its entire own page. So instead I decided to use one main page that contains the primary sections I wanted on my site. There are still some secondary pages that act as support to those primary sections but this layout overall gives the website a cleaner look while maintaining logical user interface.
 
 ---
 
@@ -42,7 +44,7 @@ If it genuinely never happened, say so plainly, and then say what you would have
 check in order to notice. Being honest here costs you far less than a story you cannot
 defend when you record your video.
 
-*Your answer here.*
+Most of the things I overruled Claude on were minor design choices and formatting issues. After asking Claude to adjust image sizing and positioning without seeing my desired results, I manually edited the code to position, crop, and size images the way I wanted them to display on the page. Additionally, Claude continuously tried to add more fonts and at one point ended up with 8 different fonts on the same page. I redirected it to only use two fonts, and bold or itallicize them for emphasis or to create visual differences on the page.
 
 ---
 
@@ -66,4 +68,4 @@ fully understand.
 
 What would you do next, and how would you find out?
 
-*Your answer here.*
+One thing that I could not get to implement correctly was dropdown menus for the primary sections that contained subsections. Despite ongoing troubleshooting, these dropdown menus remained permanently open. Ultimately I made the design decision to remove them and only allow access to those separate pages from buttons within the actual section. In the future I will research more into what could be causing this issue and approach it in a different way. Claude got caught in a loop of asking the same clarifying questions about the issue without providing new reasons or potential fixes. 

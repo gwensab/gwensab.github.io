@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects - Gwen Sabol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Projects page: linked from the "Relevant Projects" button in the
+       Experience section on index.html, not from the top nav. -->
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');</script>
+
+  <header class="topnav">
+    <a class="site-name" href="index.html#home">Gwen Sabol</a>
+    <div class="topnav-right">
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </header>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
+
+  <main>
+    <div class="page-section">
+      <div class="section-box">
+        <a class="back-link" href="index.html#experience">&larr; Back to Experience</a>
+        <p class="eyebrow">Experience &middot; Projects</p>
+        <h1>Projects</h1>
+        <p class="tagline">A few things I've built.</p>
+      </div>
+      <div class="section-rule" aria-hidden="true"></div>
+      <div class="section-box section-body">
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>Oil Well Data Collection Website</h3>
+            <p>Directly interacted with the primary stakeholder to ensure easy integration of user needs and an intuitive user interface. 
+              Built a company website with secure login, data input, and access to current and historical reports. Once the user enters data about a well,
+              that information is emailed directly to those whom it is relevant to and integrated directly into the company's Snowflake database.</p>
+            <p class="tags">Django &middot; Python &middot; Azure &middot; Snowflake</p>
+          </div>
+
+          <div class="project-card project-card-photo">
+            <img class="project-photo" src="robot_proj.jpg" alt="Temperature collection robot">
+            <div>
+              <h3>Temperature Collection Robot</h3>
+              <p>Programmed and built an autonomous device that collected temperature data around an office and adjusted thermostats accordingly, interfacing Raspberry Pi and Arduino. <a href="https://github.com/gwensab/Temperature-Collection-Robot" target="_blank" rel="noopener">See it on GitHub.</a></p>
+              <p class="tags">Python &middot; C++ &middot; Raspberry Pi &middot; Arduino</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

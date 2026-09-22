@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music - Gwen Sabol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Music page: one of three "Outside of work" pages linked from the About
+       section's tiles on index.html (concerts.html, hiking.html,
+       skiing.html), not from the top nav. -->
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');</script>
+
+  <header class="topnav">
+    <a class="site-name" href="index.html#home">Gwen Sabol</a>
+    <div class="topnav-right">
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </header>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
+
+  <main>
+    <div class="page-section">
+      <div class="section-box">
+        <a class="back-link" href="index.html#about">&larr; Back to About</a>
+        <p class="eyebrow">About &middot; Music</p>
+        <h1>Music</h1>
+        <p class="tagline">Tunes that keep me going, and shows worth remembering.</p>
+      </div>
+      <div class="section-rule" aria-hidden="true"></div>
+      <div class="section-box section-body">
+        <h3>Top 5 Songs</h3>
+        <ol class="song-list">
+          <li><span class="rank">01</span><img class="cover" src="album_covers/beatles_album.jpg" alt="Album cover"><span class="song">I Want You (She's So Heavy) <span class="artist">&mdash; The Beatles</span></span><a class="listen-link" href="https://open.spotify.com/track/3Z25k4ZF6QENy2d9YatsM5" target="_blank" rel="noopener">Listen now</a></li>
+          <li><span class="rank">02</span><img class="cover" src="album_covers/erykah_album.jpg" alt="Album cover"><span class="song">Bag Lady <span class="artist">&mdash; Erykah Badu</span></span><a class="listen-link" href="https://open.spotify.com/track/7BgUcOjSOlKJXASLgJ6bx1" target="_blank" rel="noopener">Listen now</a></li>
+          <li><span class="rank">03</span><img class="cover" src="album_covers/vince_album.jpg" alt="Album cover"><span class="song">Black&amp;Blue <span class="artist">&mdash; Vince Staples</span></span><a class="listen-link" href="https://open.spotify.com/track/6sKGGi2pVKXR69s1SNdhGv" target="_blank" rel="noopener">Listen now</a></li>
+          <li><span class="rank">04</span><img class="cover" src="album_covers/simz_album.jpg" alt="Album cover"><span class="song">Woman <span class="artist">&mdash; Little Simz, Cleo Sol</span></span><a class="listen-link" href="https://open.spotify.com/track/19e3zI5xbWppLkj4wSFBEu" target="_blank" rel="noopener">Listen now</a></li>
+          <li><span class="rank">05</span><img class="cover" src="album_covers/amy_album.jpg" alt="Album cover"><span class="song">Me &amp; Mr. Jones <span class="artist">&mdash; Amy Winehouse</span></span><a class="listen-link" href="https://open.spotify.com/track/0gU2VBeGIIZ27xsdNdVcQ0" target="_blank" rel="noopener">Listen now</a></li>
+        </ol>
+
+        <h3>Concerts</h3>
+        <div class="photo-grid">
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_1.jpg" alt="Concert photo">
+              <figcaption><span class="artist-name">Tennis</span> &middot; Mission Ballroom, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_2.jpg" alt="Concert photo">
+              <figcaption><span class="artist-name">Thee Sacred Souls</span> &middot; Dillon Ampitheater, Dillon</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_3.jpg" alt="Concert photo" style="object-position: bottom;">
+              <figcaption><span class="artist-name">Clairo</span> &middot; Mission Ballroom, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_4.jpg" alt="Concert photo">
+              <figcaption><span class="artist-name">Faye Webster</span> &middot; Mission Ballroom, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_5.jpg" alt="Concert photo" style="object-position: bottom;">
+              <figcaption><span class="artist-name">Little Simz</span> &middot; Summit, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_6.jpg" alt="Concert photo" style="object-position: bottom;">
+              <figcaption><span class="artist-name">Green Day</span> &middot; Coors Field, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_7.jpg" alt="Concert photo" style="object-position: bottom;">
+              <figcaption><span class="artist-name">Thee Sacred Souls</span> &middot; Mission Ballroom, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_8.jpg" alt="Concert photo">
+              <figcaption><span class="artist-name">Kali Uchis</span> &middot; Ball Arena, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_9.jpg" alt="Concert photo">
+              <figcaption><span class="artist-name">Erykah Badu</span> &middot; Ball Arena, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_10.jpg" alt="Concert photo">
+              <figcaption><span class="artist-name">Gracie Abrams</span> &middot; Red Rocks, Morrison</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_11.jpg" alt="Concert photo">
+              <figcaption><span class="artist-name">Arlo Parks</span> &middot; Botanic Gardens, Denver</figcaption>
+            </figure>
+          </div>
+          <div class="photo-card">
+            <figure>
+              <img class="placeholder-photo" src="concerts/concert_12.jpg" alt="Concert photo">
+              <figcaption><span class="artist-name">Erykah Badu</span> &middot; Red Rocks, Morrison</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hiking - Gwen Sabol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Nature page: one of three "Outside of work" pages linked from the About
+       section's tiles on index.html (concerts.html, hiking.html,
+       skiing.html), not from the top nav. -->
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');</script>
+
+  <header class="topnav">
+    <a class="site-name" href="index.html#home">Gwen Sabol</a>
+    <div class="topnav-right">
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </header>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
+
+  <main>
+    <div class="page-section">
+      <div class="section-box">
+        <a class="back-link" href="index.html#about">&larr; Back to About</a>
+        <p class="eyebrow">About &middot; Hiking</p>
+        <h1>Hiking</h1>
+        <p class="tagline">Trails &amp; activities around Colorado, one weekend at a time.</p>
+      </div>
+      <div class="section-rule" aria-hidden="true"></div>
+      <div class="section-box section-body">
+        <div class="photo-grid">
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_1.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_2.jpg" alt="Nature photo" style="object-position: bottom;">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_3.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_4.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_5.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_6.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_7.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_8.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_9.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_10.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_11.jpg" alt="Nature photo">
+          </div>
+          <div class="photo-card">
+            <img class="placeholder-photo" src="nature/nature_12.jpg" alt="Nature photo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

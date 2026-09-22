@@ -1,34 +1,746 @@
-/* A deliberately small starting point.
-   It exists to prove one thing: this file is loading.
-   If you can see spacing and a readable line length, the path in index.html works.
+/* Technical/index feel: numbered eyebrows, full-bleed rule bars under each
+   heading, a mono accent face for labels/numbers/tags, and list/card-based
+   Experience/About sections instead of soft panels. No gradients. */
 
-   Delete all of it whenever you want. */
+/* Color roles, light and dark mode share the same names but different values:
+   --accent / --muted: TEXT color only (headings, links, tags, captions,
+     eyebrows) sitting directly on the page background. Keep these readable
+     against --bg in both themes.
+   --accent-fill / --muted-fill: BACKGROUND/BORDER color for filled surfaces
+     (top nav, contact bar, section-rule divider, the Relevant Projects
+     button, the About page tiles). These can be darker/lighter than
+     --accent/--muted without hurting text legibility elsewhere.
+   --on-accent: the text color used on top of an --accent-fill/--muted-fill
+     surface, chosen per theme to stay readable against those fills.
+   --box-bg: the hover-state text color for links/buttons sitting on an
+     --accent-fill surface (nav links, theme toggle, contact bar links). */
 
 :root {
-  /* Makes the page follow the reader's light or dark mode setting, for free. */
-  color-scheme: light dark;
+  color-scheme: light;
+  --bg: #CDD7D6;
+  --text: #1B1B3A;
+  --muted: #724586;
+  --accent: #808F85;
+  --accent-fill: #808F85;
+  --muted-fill: #724586;
+  --on-accent: #CDD7D6;
+  --box-bg: #d1cebd;
+  --border: #808F85;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1c1a17;
+  --text: #ede8e2;
+  --muted: #724586;
+  --accent: #808F85;
+  --accent-fill: #4d5650;
+  --muted-fill: #442950;
+  --on-accent: #ede8e2;
+  --box-bg: #d1cebd;
+  --border: #4c4a3f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-
-  /* 65ch caps the line at about 65 characters. Long lines are genuinely hard
-     to read, and this single rule does more for legibility than anything else
-     in this file. */
-  max-width: 65ch;
-
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  line-height: 1.6;
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-weight: 400;
   font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Top nav: sticky, one bold band of color. */
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  background: var(--accent-fill);
+}
+
+.topnav .site-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--on-accent);
+}
+
+.topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.topnav nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+}
+
+.topnav nav a {
+  text-decoration: none;
+  color: var(--on-accent);
+  font-weight: 600;
+}
+
+.topnav nav a:hover,
+.topnav nav a:focus-visible {
+  color: var(--box-bg);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--on-accent);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--box-bg);
+}
+
+.theme-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+/* Page content */
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+}
+
+.section-box {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.prose {
+  max-width: 65ch;
+}
+
+.home-layout {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: nowrap;
+}
+
+.headshot {
+  width: 180px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.25rem;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  color: var(--accent);
+  margin: 0 0 1rem;
+}
+
+h2 {
+  color: var(--accent);
+  font-size: 1.85rem;
+  margin: 0;
+}
+
+h3 {
+  color: var(--accent);
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 p {
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* Numbered eyebrow label + full-bleed rule under each section heading. */
+
+.eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.section-rule {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  height: 2px;
+  background: var(--accent-fill);
+  margin-top: 1.5rem;
+}
+
+.section-body {
+  margin-top: 2.5rem;
+}
+
+/* Sections stack on one page, with plenty of separation. */
+
+.page-section {
+  scroll-margin-top: 5.5rem;
+  margin-bottom: 5rem;
+}
+
+.page-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Experience: boxed cards, three across. Projects: stacked, full width. */
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-card,
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+/* Modifier for a .project-card that has a photo: puts the image to the left
+   of the text instead of the plain stacked h3/p/tags layout. */
+
+.project-card-photo {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.project-photo {
+  width: 180px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.experience-card h3,
+.project-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+}
+
+.experience-card .company,
+.project-card p {
+  margin: 0 0 0.75rem;
+  font-weight: 400;
+}
+
+.experience-card .meta,
+.project-card .tags {
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+
+.relevant-projects-btn {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid var(--accent-fill);
+  border-radius: 6px;
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.relevant-projects-btn:hover,
+.relevant-projects-btn:focus-visible {
+  background: var(--muted-fill);
+  border-color: var(--muted-fill);
+  color: var(--on-accent);
+}
+
+/* About: a compact key/value fact list plus a clean indexed link list. */
+
+.fact-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.fact-list li {
+  display: flex;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  font-size: 1.25rem;
+}
+
+.fact-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.fact-list .label {
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 8rem;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+/* "Outside of work" tiles: solid-filled photo buttons linking to the three
+   topic pages (concerts.html, hiking.html, skiing.html). Filled by default,
+   not just on hover, so they read as buttons before you touch them. */
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.interest-item {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--on-accent);
+  padding: 1.25rem;
+  border: 1px solid var(--accent-fill);
+  border-radius: 8px;
+  background: var(--accent-fill);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.interest-item:hover,
+.interest-item:focus-visible {
+  border-color: var(--muted-fill);
+  background: var(--muted-fill);
+}
+
+.interest-item .placeholder-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.interest-item .interest-name {
+  display: block;
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--on-accent);
+}
+
+/* Topic pages: photo + caption grid */
+
+/* Breaks out to the full page width so each photo can run about a
+   quarter of the page wide, the same technique as .section-rule. */
+
+.photo-grid {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  box-sizing: border-box;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.photo-card {
+  flex: 0 0 auto;
+  width: 22vw;
+  min-width: 220px;
+  max-width: 380px;
+}
+
+.photo-card .placeholder-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.photo-card figure {
+  margin: 0;
+}
+
+.photo-card figcaption {
+  margin-top: 0.5rem;
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+
+.photo-card figcaption .artist-name {
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .photo-grid {
+    padding: 0 1.25rem;
+  }
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+/* Music page: ranked song list */
+
+.song-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.song-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.song-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.song-list .rank {
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.song-list .cover {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.song-list .artist {
+  color: var(--muted);
+}
+
+.song-list .listen-link {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--accent);
+}
+
+/* Skills: mono tag pills instead of bullet lists. */
+
+.skill-group {
+  margin-bottom: 2rem;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group h3 {
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-list li {
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  color: var(--text);
+}
+
+.tag-list li:not(:last-child)::after {
+  content: "\00B7";
+  margin-left: 0.5rem;
+  color: var(--muted);
+}
+
+/* Contact: label/value rows. */
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.contact-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.contact-list .label {
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 5.5rem;
+  flex-shrink: 0;
+}
+
+/* Contact bar: a full-bleed band like the top nav, flush to the bottom of
+   the page since it's the last section, only in view once you scroll all
+   the way down. */
+
+.contact-bar {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-bottom: -2rem;
+  padding: 4rem 2rem;
+  background: var(--accent-fill);
+}
+
+.contact-bar h2,
+.contact-bar .eyebrow {
+  color: var(--on-accent);
+}
+
+.contact-bar .contact-list li {
+  border-color: rgb(236 220 236 / 30%);
+}
+
+.contact-bar .contact-list .label {
+  color: rgb(236 220 236 / 70%);
+}
+
+.contact-bar .contact-list a {
+  color: var(--on-accent);
+  font-weight: 600;
+}
+
+.contact-bar .contact-list a:hover,
+.contact-bar .contact-list a:focus-visible {
+  color: var(--box-bg);
+}
+
+/* Narrow screens */
+
+@media (max-width: 1000px) {
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .topnav {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card-photo {
+    flex-direction: column;
+  }
+
+  .project-photo {
+    width: 100%;
+  }
+
+  main {
+    padding: 3rem 1.25rem 2rem;
+  }
+
+  .home-layout {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .headshot {
+    width: 140px;
+    margin: 0 auto;
+  }
+
+  .fact-list li {
+    flex-wrap: wrap;
+  }
+
+  .song-list li {
+    flex-wrap: wrap;
+  }
+
+  .song-list .listen-link {
+    margin-left: calc(44px + 1rem);
+  }
+
+  .interest-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .interest-item .interest-name {
+    font-size: 0.7rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
 }

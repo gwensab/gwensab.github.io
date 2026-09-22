@@ -3,21 +3,231 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello</title>
+  <title>Gwen Sabol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Home page: the site's landing page and only page in the top nav that
+       isn't a full page of its own, everything else (Experience, Skills,
+       About, Contact) is a same-page section jumped to by id (#home,
+       #experience, etc.). Projects, Music, Nature, and Sports are separate
+       pages linked from inside these sections rather than from the nav. -->
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') === 'dark' ? 'dark' : 'light');</script>
 
-  <h1>Hello, world.</h1>
+  <header class="topnav">
+    <a class="site-name" href="#home">Gwen Sabol</a>
+    <div class="topnav-right">
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </header>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
 
-  <p>
-    This page is live. That is the only thing it is here to prove.
-  </p>
+  <main>
+    <section id="home" class="page-section">
+      <div class="section-box">
+        <p class="eyebrow">00 &middot; Home</p>
+        <div class="home-layout">
+          <img class="headshot" src="headshot.jpg" alt="Portrait of Gwen Sabol">
+          <div class="prose">
+            <h1>Gwen Sabol</h1>
+            <p class="tagline">Computer science senior, building software for the physical world and robotics applications.</p>
+            <p>
+              Colorado School of Mines, Robotics &amp; Intelligent Systems. <br>
+              Working across the different industries, from oil &amp; gas to software implementation, 
+              to create seamless integration between code and systems that comunicate with physical devices. 
+              Experienced in software engineering, robotics, and data collection with hardware and sensors.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <p>
-    Everything about it is yours to delete. Open Claude Code in this folder and
-    tell it what you actually want to build.
-  </p>
+    <!-- Experience: work history, plus a button to projects.html (the
+         Relevant Projects page, no longer in the top nav). -->
+    <section id="experience" class="page-section">
+      <div class="section-box">
+        <p class="eyebrow">01 &middot; Experience</p>
+      </div>
+      <div class="section-rule" aria-hidden="true"></div>
+      <div class="section-box section-body">
+        <div class="experience-grid">
+          <div class="experience-card">
+            <h3>Learning Space Technician</h3>
+            <p class="company">Colorado School of Mines IT</p>
+            <p class="meta">Golden, CO<br>March 2026&ndash;Current</p>
+          </div>
+
+          <div class="experience-card">
+            <h3>Implementation Consultant Intern</h3>
+            <p class="company">FAST Enterprises</p>
+            <p class="meta">Lincoln, NE<br>May 2026&ndash;August 2026</p>
+          </div>
+
+          <div class="experience-card">
+            <h3>Data &amp; Software Engineering Intern</h3>
+            <p class="company">Vitesse Energy, Inc.</p>
+            <p class="meta">Centennial, CO<br>May 2025&ndash;August 2025</p>
+          </div>
+
+          <div class="experience-card">
+            <h3>Robotics Intern</h3>
+            <p class="company">Vitesse Energy, Inc.</p>
+            <p class="meta">Centennial, CO<br>May 2022&ndash;August 2022</p>
+          </div>
+
+          <div class="experience-card">
+            <h3>Cafe Staff</h3>
+            <p class="company">Duffeyroll</p>
+            <p class="meta">Denver, CO<br>May 2021&ndash;July 2025</p>
+          </div>
+
+          <div class="experience-card">
+            <h3>Robotics Club President</h3>
+            <p class="company">South High School</p>
+            <p class="meta">Denver, CO<br>August 2021&ndash;May 2023</p>
+          </div>
+
+        </div>
+
+        <a class="relevant-projects-btn" href="projects.html">Relevant Projects</a>
+      </div>
+    </section>
+
+    <section id="skills" class="page-section">
+      <div class="section-box">
+        <p class="eyebrow">02 &middot; Skills</p>
+      </div>
+      <div class="section-rule" aria-hidden="true"></div>
+      <div class="section-box section-body">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul class="tag-list">
+            <li>Python</li>
+            <li>C</li>
+            <li>C++</li>
+            <li>C#</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>SQL</li>
+            <li>LaTeX</li>
+            <li>RISC-V</li>
+            <li>Lisp</li>
+            <li>OCaml</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Tools &amp; frameworks</h3>
+          <ul class="tag-list">
+            <li>GitHub</li>
+            <li>Sigma</li>
+            <li>PostgreSQL</li>
+            <li>VS Code</li>
+            <li>Eclipse</li>
+            <li>SolidWorks</li>
+            <li>Windows Suite</li>
+            <li>Google Suite</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Current Coursework</h3>
+          <ul class="tag-list">
+            <li>Computer Vision</li>
+            <li>Machine Learning</li>
+            <li>Coding with AI</li>
+            <li>Robotics</li>
+            <li>Field Session</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Completed Coursework</h3>
+          <ul class="tag-list">
+            <li>Data Structures &amp; Algorithms</li>
+            <li>Circuits</li>
+            <li>Software Engineering</li>
+            <li>Feedback Control Systems</li>
+            <li>Robot Planning &amp; Manipulation</li>
+            <li>Artificial Intelligence</li>
+            <li>Programming Languages</li>
+            <li>Operating Systems</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- About: the fact list, plus the "Outside of work" tiles that link to
+         concerts.html, hiking.html, and skiing.html (also not in the nav). -->
+    <section id="about" class="page-section">
+      <div class="section-box">
+        <p class="eyebrow">03 &middot; About</p>
+      </div>
+      <div class="section-rule" aria-hidden="true"></div>
+      <div class="section-box section-body">
+        <ul class="fact-list">
+          <li><span class="label">School</span> <span>Colorado School of Mines, B.S. Computer Science, Class of 2026<br>Colorado School of Mines, M.S. Robotics, Class of 2027</span></li>
+          <li><span class="label">Interests</span> Software engineering &amp; robot planning and sensing</li>
+          <li><span class="label">Looking for</span> Software engineering or robotics internship and new-grad roles</li>
+        </ul>
+
+        <h3>Outside of work</h3>
+        <div class="interest-grid">
+          <a class="interest-item" href="concerts.html">
+            <img class="placeholder-photo" src="concerts/concert_1.jpg" alt="Music photo">
+            <span class="interest-name">Music</span>
+          </a>
+
+          <a class="interest-item" href="hiking.html">
+            <img class="placeholder-photo" src="nature/nature_1.jpg" alt="Nature photo">
+            <span class="interest-name">Nature</span>
+          </a>
+
+          <a class="interest-item" href="skiing.html">
+            <img class="placeholder-photo" src="sports/skiing_1.jpg" alt="Sports photo">
+            <span class="interest-name">Sports</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="page-section">
+      <div class="contact-bar">
+        <div class="section-box">
+          <p class="eyebrow">04 &middot; Contact</p>
+          <ul class="contact-list">
+            <li><span class="label">Email</span> <a href="mailto:gwen_sabol@mines.edu">gwen_sabol@mines.edu</a></li>
+            <li><span class="label">GitHub</span> <a href="https://github.com/gwensab">github.com/gwensab</a></li>
+            <li><span class="label">LinkedIn</span> <a href="https://linkedin.com/in/gwendolyn-sabol">linkedin.com/in/gwendolyn-sabol</a></li>
+            <li><span class="label">Resume</span> <a href="resume.pdf">Download PDF</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
